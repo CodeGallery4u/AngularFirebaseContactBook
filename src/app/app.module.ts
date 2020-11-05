@@ -7,10 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AnglarMaterialModule } from "./anglar-material.module";
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AddNewContactDialogComponent } from './add-new-contact-dialog/add-new-contact-dialog.component';
+import { DeleteContactDialogComponent } from './delete-contact-dialog/delete-contact-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactsComponent,
+    AddNewContactDialogComponent,
+    DeleteContactDialogComponent
   ],
   imports: [
     BrowserModule,

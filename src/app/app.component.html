@@ -1,7 +1,7 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <mat-list role="list">
-      <mat-list-item role="listitem" ><button mat-button (click)="drawer.toggle()"> Home </button></mat-list-item>
+      <mat-list-item role="listitem"><button mat-button (click)="drawer.toggle()"> Home </button></mat-list-item>
       <mat-list-item role="listitem"><button mat-button (click)="drawer.toggle()"> Dashboard </button></mat-list-item>
       <mat-list-item role="listitem"><button mat-button (click)="drawer.toggle()"> About </button></mat-list-item>
     </mat-list>
@@ -9,40 +9,20 @@
 
   <div class="example-sidenav-content">
     <mat-toolbar color="primary">
-      <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
       <span>My App</span>
-      <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button fxHide.lt-sm  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-      </button>
+      <span class="example-spacer"></span>    
+     
     </mat-toolbar>
 
   </div>
 
   <section>
     <div>
-    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center" fxLayoutGap="50px">
-      <div>
-        <h3>Heading 1</h3>
-        <div>Contenent 1</div>
-      </div>
-
-      <div>
-        <h3>Heading 2</h3>
-        <div>Contenent 2</div>
-      </div>
-
-      <div>
-        <h3>Heading 3</h3>
-        <div>Contenent 3</div>
-      </div>
-
-    </div>
+      <app-contacts></app-contacts>
     </div>
   </section>
 
