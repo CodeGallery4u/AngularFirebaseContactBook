@@ -1,1 +1,14 @@
-<p>delete-contact-dialog works!</p>
+<h1 mat-dialog-title style="color: red">Delete Contact</h1>
+<div mat-dialog-content>
+  <section>
+    Name: <b>{{data.name}} </b><br />
+    Conatct No: <b> {{data.contactNo}}</b><br />
+    Emai: <b>{{data.email}}</b>
+  </section>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button (click)="DeleteContact()" style="color: red;">
+    Delete <mat-icon>person_remove</mat-icon>
+  </button>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

@@ -10,22 +10,28 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AddNewContactDialogComponent } from './add-new-contact-dialog/add-new-contact-dialog.component';
 import { DeleteContactDialogComponent } from './delete-contact-dialog/delete-contact-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsComponent,
     AddNewContactDialogComponent,
-    DeleteContactDialogComponent
+    DeleteContactDialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
 
     AnglarMaterialModule,
     FlexLayoutModule
   ],
+  entryComponents: [AddNewContactDialogComponent, DeleteContactDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
