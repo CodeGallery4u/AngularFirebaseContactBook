@@ -41,7 +41,7 @@ export class ContactsComponent implements OnInit {
 
 
 const ELEMENT_DATA: contact[] = [
-  { name: 'safder', contactNo: 9860335406, email: 'siddiquisafder@gmai.com', id: "" },
+  { name: 'safder', contactNo: 986033123123, email: 'safder123@gmai.com', id: "" },
 ];
 
 export interface contact {
