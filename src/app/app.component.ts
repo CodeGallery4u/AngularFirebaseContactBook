@@ -6,6 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularAppLayoutDemo';  
+  title = 'AngularAppLayoutDemo';
+
+  login() {
+    console.log('login clicked....')
+  }
+
+  logout() {
+    console.log('loged out clicked....')
+  }
 }
 
