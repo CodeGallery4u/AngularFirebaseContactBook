@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angularfbcontactbook-1": {
+      "hosting": {
+        "AngularAppLayoutDemo": [
+          "angularfbcontactbook-1"
+        ]
+      }
+    }
+  }
+}

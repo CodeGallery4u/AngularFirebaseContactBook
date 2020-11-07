@@ -12,6 +12,9 @@ import { AddNewContactDialogComponent } from './add-new-contact-dialog/add-new-c
 import { DeleteContactDialogComponent } from './delete-contact-dialog/delete-contact-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { AngularFireModule } from "@angular/fire";
+import { environment } from 'src/environments/environment';
+import { DBService } from "../app/db.service";
 
 
 
@@ -31,10 +34,11 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
 
     AnglarMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   entryComponents: [AddNewContactDialogComponent, DeleteContactDialogComponent],
-  providers: [],
+  providers: [DBService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

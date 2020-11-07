@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { contact } from '../contacts/contacts.component';
+import { DBService } from '../db.service';
 
 @Component({
   templateUrl: './delete-contact-dialog.component.html',
@@ -9,14 +10,15 @@ import { contact } from '../contacts/contacts.component';
 export class DeleteContactDialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: contact,
-    public dialogRef: MatDialogRef<DeleteContactDialogComponent>) { }
+    public dialogRef: MatDialogRef<DeleteContactDialogComponent>,
+    private _dbService: DBService) { }
 
   ngOnInit(): void {
   }
 
   DeleteContact() {
-    console.log("Delete Contact Clicked")
-    console.log(this.data)
-    this.dialogRef.close();
+    this._dbService.delete(this.data.id).subscribe(res =>{
+      this.dialogRef.close();
+    })    
   }
 }
