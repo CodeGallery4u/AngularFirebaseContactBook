@@ -1,9 +1,15 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <mat-list role="list">
-      <mat-list-item role="listitem"><button mat-button (click)="drawer.toggle()"> Dashboard </button></mat-list-item>
-      <mat-list-item role="listitem"><button mat-button (click)="drawer.toggle()" (click)="login()"> Login </button></mat-list-item>
-      <mat-list-item role="listitem"><button mat-button (click)="drawer.toggle()" (click)="logout()"> Logout </button></mat-list-item>
+      <ng-container  *ngIf="isLoggedIn$ | async">
+      <mat-list-item role="listitem"><button mat-button (click)="drawer.toggle()" routerLink="/Dashboard"> Dashboard
+        </button></mat-list-item>
+        <mat-list-item role="listitem"><button mat-button (click)="drawer.toggle()" (click)="logout()"
+         > Logout </button></mat-list-item>
+      </ng-container>
+      <mat-list-item role="listitem"><button mat-button (click)="drawer.toggle()"
+          *ngIf="!(isLoggedIn$ | async)"> Login </button></mat-list-item>
+      
     </mat-list>
   </mat-drawer>
 
@@ -15,7 +21,9 @@
       </button>
       <span>My Contact Book</span>
       <span class="example-spacer"></span>
-
+      <ng-container *ngIf="(userProfilePic$ | async) as profilePic">
+        <img class="profilePic" [src]="profilePic">
+      </ng-container>
     </mat-toolbar>
 
   </div>

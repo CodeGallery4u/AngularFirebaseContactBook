@@ -15,8 +15,17 @@ import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from "@angular/fire";
 import { environment } from 'src/environments/environment';
 import { DBService } from "../app/db.service";
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import {firebase, firebaseui, FirebaseUIModule} from 'firebaseui-angular';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
-
+const firebaseUiAuthConfig: firebaseui.auth.Config = {
+  signInFlow: 'popup',
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID
+  ]
+};
 
 @NgModule({
   declarations: [
@@ -24,7 +33,8 @@ import { DBService } from "../app/db.service";
     ContactsComponent,
     AddNewContactDialogComponent,
     DeleteContactDialogComponent,
-    LoginComponent
+    LoginComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +45,11 @@ import { DBService } from "../app/db.service";
 
     AnglarMaterialModule,
     FlexLayoutModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
   ],
-  entryComponents: [AddNewContactDialogComponent, DeleteContactDialogComponent],
+  entryComponents: [AddNewContactDialogComponent, DeleteContactDialogComponent, EditContactComponent],
   providers: [DBService],
   bootstrap: [AppComponent]
 })

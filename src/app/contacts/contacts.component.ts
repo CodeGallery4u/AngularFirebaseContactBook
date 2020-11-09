@@ -7,6 +7,7 @@ import { tap } from 'rxjs/operators';
 import { AddNewContactDialogComponent } from '../add-new-contact-dialog/add-new-contact-dialog.component';
 import { DBService } from '../db.service';
 import { DeleteContactDialogComponent } from '../delete-contact-dialog/delete-contact-dialog.component';
+import { EditContactComponent } from '../edit-contact/edit-contact.component';
 
 @Component({
   selector: 'app-contacts',
@@ -45,6 +46,13 @@ export class ContactsComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  edit(element: contact){
+    let dialog = this.dialog.open(EditContactComponent, {
+      data: element
+    });
+    dialog.afterClosed().subscribe((res) => console.log(res))
   }
 
 }

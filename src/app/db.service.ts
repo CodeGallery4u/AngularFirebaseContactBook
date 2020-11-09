@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable, of } from 'rxjs';
 import { map } from "rxjs/operators";
@@ -12,7 +13,7 @@ const DBCollections = {
 })
 export class DBService {
 
-  constructor(private _angularFirestore: AngularFirestore) { }
+  constructor(private _angularFirestore: AngularFirestore, private _afAuth: AngularFireAuth) { }
 
   getAllContacts() {
     return this._angularFirestore.collection(DBCollections.contacts, ref => ref.orderBy('name', "asc")).snapshotChanges().pipe(
@@ -33,6 +34,14 @@ export class DBService {
 
   delete(id: string) {
     return of(this._angularFirestore.collection(DBCollections.contacts).doc(id).delete())
+  }
+
+  logOut() {
+    return of(this._afAuth.signOut());
+  }
+
+  updateContact(id: string, contact: Partial<contact>) {
+    return of(this._angularFirestore.collection(DBCollections.contacts).doc(id).update(contact))
   }
 
 }
