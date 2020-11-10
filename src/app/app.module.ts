@@ -12,6 +12,7 @@ import { AddNewContactDialogComponent } from './add-new-contact-dialog/add-new-c
 import { DeleteContactDialogComponent } from './delete-contact-dialog/delete-contact-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 
 
@@ -21,7 +22,8 @@ import { LoginComponent } from './login/login.component';
     ContactsComponent,
     AddNewContactDialogComponent,
     DeleteContactDialogComponent,
-    LoginComponent
+    LoginComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,
