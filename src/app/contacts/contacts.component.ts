@@ -4,6 +4,7 @@ import { getMatIconFailedToSanitizeLiteralError } from '@angular/material/icon';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddNewContactDialogComponent } from '../add-new-contact-dialog/add-new-contact-dialog.component';
 import { DeleteContactDialogComponent } from '../delete-contact-dialog/delete-contact-dialog.component';
+import { EditContactComponent } from '../edit-contact/edit-contact.component';
 
 @Component({
   selector: 'app-contacts',
@@ -37,6 +38,12 @@ export class ContactsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  edit(element: contact){
+    let dialog = this.dialog.open(EditContactComponent, {
+      data: element
+    });
+    dialog.afterClosed().subscribe((res) => console.log(res))
+  }
 }
 
 
