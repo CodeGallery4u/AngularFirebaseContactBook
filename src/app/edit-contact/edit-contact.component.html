@@ -1,1 +1,28 @@
-<p>edit-contact works!</p>
+<h1 mat-dialog-title style="color: green">Add Contact</h1>
+<div mat-dialog-content>
+  <form [formGroup]="contactForm">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error> Please Enter Name </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>ContactNo</mat-label>
+      <input matInput formControlName="contactNo">
+      <mat-error> Please Enter Contact Number </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error> Please Enter Email </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button [disabled]="contactForm.invalid" mat-flat-button (click)="UpdateContact()" [ngClass]="{'green-color': contactForm.valid, 'gray-color': contactForm.invalid}">
+    Update <mat-icon>assignment_ind</mat-icon>
+  </button>
+  <button mat-button mat-dialog-close>Close</button>
+</div>
